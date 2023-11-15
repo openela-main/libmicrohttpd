@@ -1,0 +1,11 @@
+--- libmicrohttpd-0.9.53/src/microhttpd/daemon.c.orig	2017-04-12 08:31:18.243540128 +0200
++++ libmicrohttpd-0.9.53/src/microhttpd/daemon.c	2017-04-12 08:34:19.851158371 +0200
+@@ -5415,7 +5415,7 @@
+   if (0 != (*pflags & MHD_USE_TLS))
+     {
+       gnutls_priority_init (&daemon->priority_cache,
+-			    "NORMAL",
++			    "@SYSTEM",
+ 			    NULL);
+     }
+ #endif /* HTTPS_SUPPORT */
