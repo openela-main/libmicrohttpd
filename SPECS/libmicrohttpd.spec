@@ -1,12 +1,13 @@
 Name:           libmicrohttpd
 Version:        0.9.59
-Release:        2%{?dist}
+Release:        3%{?dist}
 Epoch:          1
 Summary:        Lightweight library for embedding a webserver in applications
 License:        LGPLv2+
 URL:            http://www.gnu.org/software/libmicrohttpd/
 Source0:        https://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
 Patch0:         gnutls-utilize-system-crypto-policy.patch
+Patch1:         cve-2023-27371.patch
 
 BuildRequires:  autoconf, automake, libtool, gettext-devel
 BuildRequires:  texinfo
@@ -111,6 +112,11 @@ fi
 %doc html
 
 %changelog
+* Thu Apr 06 2023 Pavel Šimovec <psimovec@redhat.com> - 1:0.9.59-3
+- Add cve-2023-27371.patch
+  Related: rhbz#2174639
+  CVE-2023-27371
+
 * Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1:0.9.59-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
