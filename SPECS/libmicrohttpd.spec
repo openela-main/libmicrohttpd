@@ -1,12 +1,13 @@
 Name:           libmicrohttpd
 Version:        0.9.72
-Release:        4%{?dist}
+Release:        5%{?dist}
 Epoch:          1
 Summary:        Lightweight library for embedding a webserver in applications
 License:        LGPLv2+
 URL:            http://www.gnu.org/software/libmicrohttpd/
 Source0:        https://ftp.gnu.org/gnu/libmicrohttpd/%{name}-%{version}.tar.gz
 Patch0:         gnutls-utilize-system-crypto-policy.patch
+Patch1:         cve-2023-27371.patch
 
 BuildRequires:  autoconf, automake, libtool, gettext-devel
 BuildRequires:  texinfo
@@ -107,6 +108,11 @@ fi
 %doc html
 
 %changelog
+* Tue Mar 28 2023 Pavel Šimovec <psimovec@redhat.com> - 1:0.9.72-5
+- Add cve-2023-27371.patch
+  Related: rhbz#2174640
+  CVE-2023-27371 
+
 * Mon Aug 09 2021 Mohan Boddu <mboddu@redhat.com> - 1:0.9.72-4
 - Rebuilt for IMA sigs, glibc 2.34, aarch64 flags
   Related: rhbz#1991688
